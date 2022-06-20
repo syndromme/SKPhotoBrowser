@@ -116,6 +116,14 @@ open class SKPhoto: NSObject, SKPhotoProtocol {
                         self.underlyingImage = image
                         self.loadUnderlyingImageComplete()
                     }
+                } else if URL.pathExtension.lowercased() == "svg", let data = data, let image = SVG(data)?.image()?.resizeImage(1080, opaque: true) {
+                  if self.shouldCachePhotoURLImage {
+                    SKCache.sharedCache.setImage(image, forKey: self.photoURL)
+                  }
+                  DispatchQueue.main.async {
+                      self.underlyingImage = image
+                      self.loadUnderlyingImageComplete()
+                  }
                 }
                 
             })
