@@ -101,6 +101,14 @@
                                             <action selector="pushGifButton:" destination="wTD-ba-cWw" eventType="touchUpInside" id="0Xy-tt-ygH"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ztp-AT-UMo">
+                                        <rect key="frame" x="0.0" y="116" width="232" height="58"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="40"/>
+                                        <state key="normal" title="Show(svg)"/>
+                                        <connections>
+                                            <action selector="pushSVGButton:" destination="wTD-ba-cWw" eventType="touchUpInside" id="s8j-xV-Aqx"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>

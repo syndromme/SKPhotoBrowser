@@ -34,6 +34,14 @@ class FromWebViewController: UIViewController, SKPhotoBrowserDelegate {
 
         present(browser, animated: true, completion: nil)
     }
+  
+    @IBAction func pushSVGButton(_ sender: AnyObject) {
+        let browser = SKPhotoBrowser(photos: createWebSVGPhotos())
+        browser.initializePageIndex(0)
+        browser.delegate = self
+
+        present(browser, animated: true, completion: nil)
+    }
 }
 
 // MARK: - SKPhotoBrowserDelegate
@@ -68,6 +76,22 @@ private extension FromWebViewController {
             "https://media.giphy.com/media/ftdEPX8jF6SvC/giphy.gif",
             "https://media.giphy.com/media/MDrq4Gwd0i4m4mGwCr/giphy.gif",
             "https://media.giphy.com/media/jOOjdVK9i2Qn1alT6a/giphy.gif"
+        ]
+
+        var result: [SKPhotoProtocol] = []
+        for (i, v) in gifs.enumerated() {
+            let photo = SKPhoto.photoWithImageURL(v)
+            photo.caption = caption[i]
+            result.append(photo)
+        }
+        return result
+    }
+  
+    func createWebSVGPhotos() -> [SKPhotoProtocol] {
+        let gifs: [String] = [
+            "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/raleigh.svg",
+            "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/easypeasy.svg",
+            "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/svg.svg"
         ]
 
         var result: [SKPhotoProtocol] = []
